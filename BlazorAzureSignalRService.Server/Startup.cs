@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Blazor.Builder;
+using Microsoft.AspNetCore.Blazor.Hosting;
 using Microsoft.AspNetCore.Blazor.Server;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,24 +50,40 @@ namespace BlazorAzureSignalRService.Server
 
             var startupType = typeof(App.Startup);
             var startup = app.ApplicationServices.GetRequiredService(startupType);
-            var wrapper = new Microsoft.AspNetCore.Blazor.Hosting.ConventionBasedStartup(startup);
+
+            // var wrapper = new ConventionBasedStartup(startup);
+            var blazorBrowserAssembly = Assembly.GetAssembly(typeof(BlazorWebAssemblyHost));
+            var conventionBasedStartupType = blazorBrowserAssembly.GetType("Microsoft.AspNetCore.Blazor.Hosting.ConventionBasedStartup");
+            var wrapper = Activator.CreateInstance(conventionBasedStartupType, startup);
+
+            // Action<IBlazorApplicationBuilder> configure = (b) =>
+            // {
+            //     wrapper.Configure(b, b.Services);
+            // };
+
+            var configureMethod = conventionBasedStartupType.GetMethod("Configure");
             Action<IBlazorApplicationBuilder> configure = (b) =>
             {
-                wrapper.Configure(b, b.Services);
+                configureMethod.Invoke(wrapper, new object[] { b, b.Services });
             };
 
+            // UseServerSideBlazorCore(builder, configure);
             var endpoint = "/_blazor";
 
-            var assembly = Assembly.GetAssembly(typeof(BlazorOptions));
-            var circuitFactoryType = assembly.GetType("Microsoft.AspNetCore.Blazor.Server.Circuits.CircuitFactory");
+            // var factory = (DefaultCircuitFactory)builder.ApplicationServices.GetRequiredService<CircuitFactory>();
+            var blazorServerAssembly = Assembly.GetAssembly(typeof(BlazorOptions));
+            var circuitFactoryType = blazorServerAssembly.GetType("Microsoft.AspNetCore.Blazor.Server.Circuits.CircuitFactory");
             var factory = app.ApplicationServices.GetRequiredService(circuitFactoryType);
+
+            // factory.StartupActions.Add(endpoint, configure);
             var startupActionsProperty = factory.GetType().GetRuntimeProperty("StartupActions");
             var startupActions = (Dictionary<PathString, Action<IBlazorApplicationBuilder>>) startupActionsProperty.GetValue(factory);
             startupActions.Add(endpoint, configure);
 
+            // builder.UseSignalR(route => route.MapHub<BlazorHub>(endpoint));
             var mapHubMethodInfo = typeof(ServiceRouteBuilder)
                 .GetMethod("MapHub", new[] { typeof(string) })
-                .MakeGenericMethod(assembly.GetType("Microsoft.AspNetCore.Blazor.Server.Circuits.BlazorHub"));
+                .MakeGenericMethod(blazorServerAssembly.GetType("Microsoft.AspNetCore.Blazor.Server.Circuits.BlazorHub"));
 
             app.UseAzureSignalR(route => mapHubMethodInfo.Invoke(route, new[] { endpoint }));
 
