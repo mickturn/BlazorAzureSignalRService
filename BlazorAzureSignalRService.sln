@@ -1,50 +1,31 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
-MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAzureSignalRService.Server", "BlazorAzureSignalRService.Server\BlazorAzureSignalRService.Server.csproj", "{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}"
+VisualStudioVersion = 15.0.28107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAzureSignalRService.Server", "BlazorAzureSignalRService.Server\BlazorAzureSignalRService.Server.csproj", "{862D810A-EAFA-4862-A9FD-E7C7A5921CCB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAzureSignalRService.App", "BlazorAzureSignalRService.App\BlazorAzureSignalRService.App.csproj", "{4B4820BF-F219-4423-8AE8-BB37383BAE86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAzureSignalRService.App", "BlazorAzureSignalRService.App\BlazorAzureSignalRService.App.csproj", "{3C2B6E64-BE90-4F95-BA35-39426A7117EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Debug|x64.Build.0 = Debug|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Debug|x86.Build.0 = Debug|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Release|x64.ActiveCfg = Release|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Release|x64.Build.0 = Release|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Release|x86.ActiveCfg = Release|Any CPU
-		{4B4820BF-F219-4423-8AE8-BB37383BAE86}.Release|x86.Build.0 = Release|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Debug|x64.Build.0 = Debug|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Debug|x86.Build.0 = Debug|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Release|x64.ActiveCfg = Release|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Release|x64.Build.0 = Release|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Release|x86.ActiveCfg = Release|Any CPU
-		{1E21D1D0-6DB5-44FB-8716-1A3B29F0DC61}.Release|x86.Build.0 = Release|Any CPU
+		{862D810A-EAFA-4862-A9FD-E7C7A5921CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{862D810A-EAFA-4862-A9FD-E7C7A5921CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{862D810A-EAFA-4862-A9FD-E7C7A5921CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{862D810A-EAFA-4862-A9FD-E7C7A5921CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C2B6E64-BE90-4F95-BA35-39426A7117EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C2B6E64-BE90-4F95-BA35-39426A7117EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C2B6E64-BE90-4F95-BA35-39426A7117EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C2B6E64-BE90-4F95-BA35-39426A7117EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7CD9F5A3-720E-4430-85D4-014FE4B8CBCF}
+		SolutionGuid = {87E488A2-97A2-4D4F-95EA-44E48625117C}
 	EndGlobalSection
 EndGlobal
